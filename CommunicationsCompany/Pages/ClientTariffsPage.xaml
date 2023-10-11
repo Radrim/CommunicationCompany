@@ -1,0 +1,45 @@
+﻿<Page x:Class="CommunicationsCompany.Pages.ClientTariffsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CommunicationsCompany.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ClientTariffsPage"
+      Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock>ПОДКЛЮЧЁННЫЕ ТАРИФЫ</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" HorizontalAlignment="Center">Название</TextBlock>
+                <TextBlock Width="140" HorizontalAlignment="Center">Цена за ГБ интернета</TextBlock>
+                <TextBlock Width="150" HorizontalAlignment="Center">Цена за минуты звонков</TextBlock>
+                <TextBlock Width="150" HorizontalAlignment="Center">Количество СМС'ок</TextBlock>
+                <TextBlock Width="150" HorizontalAlignment="Center">Цена(руб.)</TextBlock>
+            </StackPanel>
+            <ListView x:Name="lvClientTariffs" d:ItemsSource="{d:SampleData ItemCount=5}" MouseDoubleClick="GoToOrder">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Title}" Width="150" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock Text="{Binding CountOfGBInternet}" Width="140" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock Text="{Binding CountOfMinutesOfCalls}" Width="150" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock Text="{Binding CountOfMessages}" Width="150" HorizontalAlignment="Center"></TextBlock>
+                            <TextBlock Text="{Binding Cost}" Width="150" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
